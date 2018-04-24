@@ -14,4 +14,8 @@ export class CategoryService {
   	return of(Categories);
   }
 
+  updateCount(value, item): void{
+  		item.count = value;
+  }
+
 }

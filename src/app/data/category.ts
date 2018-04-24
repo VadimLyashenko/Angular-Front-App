@@ -5,7 +5,7 @@ export class Category {
 
 class Position {
 	title: string;
-	cost: string;
+	cost: number;
 	desc: string;
 	weight: string;
 	img: string;

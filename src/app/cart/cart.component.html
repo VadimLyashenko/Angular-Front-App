@@ -1,4 +1,4 @@
-<div class="cart-content-wrap">
+<div class="cart-content-wrap" *ngIf="cart != 0; else elseBlock">
   <div class="cart">
     <div class="cart__cart-itens-wrap">
       <div class="cart-item" *ngFor="let item of cart" [@flyOut]>
@@ -13,14 +13,14 @@
               </div>
               <div class="cart-item__cost-quan-wrap">
                 <div class="cart-item__cost-wrap">
-                  <p class="cart-item__item-cost">{{ item.cost }}
+                  <p class="cart-item__item-cost">{{ item.cost }}р
                   </p>
                 </div>
                 <div class="cart-item__quan-wrap">
                   <div class="item-quan">
-                    <button class="item-quan__quan-control minus">-
-                    </button><input class="item-quan__inp" type="number" min="1" max="100" value="{{ item.count }}"/>
-                    <button class="item-quan__quan-control plus">+
+                    <button class="item-quan__quan-control minus" (click)="onMinusCart(item)">-
+                    </button><input #inp_id_2 class="item-quan__inp" type="number" min="1" max="100" value="{{ item.count }}" (keyup.enter)="updateInput(inp_id_2.value, item)" (blur)="updateInput(inp_id_2.value, item)"/>
+                    <button class="item-quan__quan-control plus" (click)="onPlusCart(item)">+
                     </button>
                   </div>
                 </div>
@@ -28,7 +28,7 @@
             </div>
             <div class="cart-item__all-cost-del-button-wrap">
               <div class="cart-item__all-cost-wrap">
-                <p class="cart-item__all-item-cost">{{ item.cost + item.count }}
+                <p class="cart-item__all-item-cost">{{ item.cost * item.count }}р
                 </p>
               </div>
               <div class="del-button-wrap">
@@ -42,7 +42,7 @@
       </div>
     </div>
     <div class="total-wrap">
-      <p class="total-wrap__text">Итого к оплате: <span>1800</span>р
+      <p class="total-wrap__text">Итого к оплате: <span>{{ allcost }}</span>р
       </p>
     </div>
   </div>
@@ -69,3 +69,13 @@
     </div>
   </div>
 </div>
+<ng-template #elseBlock>
+  <div class="cart-content-wrap" [@flyIn]>
+    <div class="empty-cart">
+      Ваша корзина пуста!
+      <br>
+      <br>
+      <img src="../../assets/img/empty_cart_1.svg" alt="">
+    </div>
+  </div>
+</ng-template>

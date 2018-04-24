@@ -5,7 +5,7 @@ export let Categories: Category[] = [
 		positions:  [ 
 			{ 
 				title	 : "Томатный суп",
-				cost 	 : "300р", 
+				cost 	 : 300, 
 				desc 	 : "ингридиент-1, ингиеыыснт-2, ингридиент-3",
 				weight : "300г",
 				img		 : "assets/img/tomato-soup.png",
@@ -13,7 +13,7 @@ export let Categories: Category[] = [
 			},
 			{ 
 				title	 : "Череп суп",
-				cost 	 : "500р", 
+				cost 	 : 500,
 				desc 	 : "мясо0, ууууунгридиент-3",
 				weight : "567г",
 				img		 : "assets/img/tomato-soup.png",
@@ -25,7 +25,7 @@ export let Categories: Category[] = [
 		positions:  [ 
 			{ 
 				title	 : "Каша",
-				cost 	 : "545р", 
+				cost 	 : 545, 
 				desc 	 : "ингридиент-5, ингиеыыснт-6, ингридиент-7",
 				weight : "300г",
 				img		 : "assets/img/salat.jpg",
@@ -33,7 +33,7 @@ export let Categories: Category[] = [
 			},
 			{ 
 				title	 : "ФЫВАП",
-				cost 	 : "3238р", 
+				cost 	 : 3238, 
 				desc 	 : "йцукенгоримсывамс, вмв",
 				weight : "4534г",
 				img		 : "assets/img/meet.jpg",

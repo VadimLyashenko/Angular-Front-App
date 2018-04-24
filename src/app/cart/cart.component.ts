@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { trigger, state, style, animate, transition } from '@angular/animations';
+import { trigger, state, style, animate, transition, keyframes } from '@angular/animations';
 
 import { Cart } from '../data/cart';
 import { CartService } from '../service/cart.service';
@@ -10,16 +10,25 @@ import { CartService } from '../service/cart.service';
   styleUrls: ['./cart.component.css'],
   animations: [
   	trigger('flyOut',[
-  		state('in', style({ transform: 'transtaleX(0)' })),
   		transition('* => void', [
-  				animate(300, style({ height: 0, opacity: 0.2, transform: 'scale(0.4)' }))
+  				animate(250, style({ height: 0, opacity: 0.2, transform: 'scale(0.6)' }))
   			])
-  	])
+  	]),
+    trigger('flyIn',[
+      transition('void => *', [
+          animate(300, keyframes([
+            style({opacity: 0, transform: 'scale(0.8)', offset: 0}),
+            style({opacity: 0.5, transform: 'scale(0.9)', offset: 0.5}),
+            style({opacity: 1, transform: 'scale(1.0)', offset: 1.0})
+          ]))
+        ])
+    ])
   ]
 })
 export class CartComponent implements OnInit {
 
 	cart: Cart[];
+  allcost: number = this.cartService.GetAllCost();
 
   constructor(private cartService: CartService) { }
 
@@ -33,6 +42,22 @@ export class CartComponent implements OnInit {
 
   delCart(item): void{
   	this.cartService.delCart(item);
+    this.allcost = this.cartService.GetAllCost();
+  }
+
+  onMinusCart(item): void {
+    this.cartService.onMinusCart(item);
+    this.allcost = this.cartService.GetAllCost();
+  }
+
+  onPlusCart(item): void {
+    this.cartService.onPlusCart(item);
+    this.allcost = this.cartService.GetAllCost();
+  }
+
+  updateInput(value, item): void{
+    this.cartService.updateCount(value, item);
+    this.allcost = this.cartService.GetAllCost();
   }
 
 }

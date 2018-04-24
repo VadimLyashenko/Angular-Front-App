@@ -3,7 +3,7 @@ export class Cart {
 	// positions: Position[];
 	img: string;
 	title: string;
-	cost: string;
+	cost: number;
 	count: number;
 }
 

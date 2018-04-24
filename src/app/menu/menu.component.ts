@@ -45,4 +45,8 @@ export class MenuComponent implements OnInit {
  		item.count++;
 	}
 
+  updateInput(value, item): void{
+    this.categoryService.updateCount(value, item);
+  }
+
 }
