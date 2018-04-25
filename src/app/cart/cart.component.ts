@@ -4,6 +4,11 @@ import { trigger, state, style, animate, transition, keyframes } from '@angular/
 import { Cart } from '../data/cart';
 import { CartService } from '../service/cart.service';
 
+import { Order } from '../data/order';
+import { OrderService } from '../service/order.service';
+
+
+
 @Component({
   selector: 'app-cart',
   templateUrl: './cart.component.html',
@@ -29,8 +34,13 @@ export class CartComponent implements OnInit {
 
 	cart: Cart[];
   allcost: number = this.cartService.GetAllCost();
+  name: string;
+  tel: string;
+  address: string;
 
-  constructor(private cartService: CartService) { }
+  order_check: boolean = true;
+
+  constructor(private cartService: CartService, private orderService: OrderService) { }
 
   ngOnInit() {
   	this.getCart();
@@ -58,6 +68,24 @@ export class CartComponent implements OnInit {
   updateInput(value, item): void{
     this.cartService.updateCount(value, item);
     this.allcost = this.cartService.GetAllCost();
+  }
+
+  updateInputName(value): void{
+    this.name = value;
+  }
+
+  updateInputTel(value): void{
+    this.tel = value;
+  }
+
+  updateInputAddress(value): void{
+    this.address = value;
+  }
+
+  addOrder(): void{
+    // console.log(this.name, this.tel, this.address);
+    this.order_check = false;
+    this.orderService.addOrder(this.name, this.tel, this.address, this.allcost);
   }
 
 }

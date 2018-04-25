@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AgmCoreModule } from '@agm/core';
 
 import { AppComponent } from './app.component';
 import { HeaderCompComponent } from './header-comp/header-comp.component';
@@ -12,6 +13,8 @@ import { MathHeightDirective } from './math-height.directive';
 
 import { CategoryService } from './service/category.service';
 import { CartService } from './service/cart.service';
+import { OrderService } from './service/order.service';
+import { ContactsComponent } from './contacts/contacts.component';
 
 
 @NgModule({
@@ -21,16 +24,21 @@ import { CartService } from './service/cart.service';
     FooterCompComponent,
     MenuComponent,
     CartComponent,
-    MathHeightDirective
+    MathHeightDirective,
+    ContactsComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyDgD_C_GT1KDaNdbssbRmWU8zHvcQbYUgw'
+    })
   ],
   providers: [
     CategoryService,
-    CartService
+    CartService,
+    OrderService
   ],
   bootstrap: [AppComponent]
 })

@@ -24,4 +24,8 @@ export class HeaderCompComponent implements OnInit {
   	this.page_name = "Корзина";
 	}
 
+  // onSelectContacts(): void {
+    // this.page_name = "Контакты";
+  // }
+
 }

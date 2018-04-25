@@ -7,7 +7,7 @@
   <div class="right-bar">
     <div *ngIf="sel_category; else elseBlock">
       <div class="row" myMatchHeight="pos">
-        <div class="col-lg-4 col-md-6 col-sm-6 item" *ngFor="let item of sel_category.positions" >
+        <div class="col-lg-4 col-md-6 col-sm-6 item" *ngFor="let item of sel_category.positions" [@flyIn]>
           <img src={{item.img}} alt=""/>
           <div class="item-title-wrap">
             <h5 class="item-title-wrap__item-title">{{ item.title }}
@@ -31,9 +31,10 @@
                 <button class="item-quan__quan-control plus" (click)="onPlus(item)">+
                 </button>
               </div>
-              <div class="in-cart-wrap">
-                <button class="in-cart-wrap__in-cart" (click)="addCarties(item)"><i class="fas fa-shopping-cart"> </i>
-                  <p>В корзину</p>
+              <div class="in-cart-wrap" >
+                <button class="in-cart-wrap__in-cart" (click)="addCarties(item)" *ngIf="item.status; else elseButton">
+                  <i class="fas fa-shopping-cart"> </i>
+                  <p>Купить</p>
                 </button>
               </div>
             </div>
@@ -43,7 +44,7 @@
     </div>      
     <ng-template #elseBlock>
       <div class="row" myMatchHeight="pos">
-        <div class="col-lg-4 col-md-6 col-sm-6 item" *ngFor="let item of categories[0].positions" >
+        <div class="col-lg-4 col-md-6 col-sm-6 item" *ngFor="let item of categories[0].positions" [@flyIn]>
           <img src={{item.img}} alt=""/>
           <div class="item-title-wrap">
             <h5 class="item-title-wrap__item-title">{{ item.title }}
@@ -68,8 +69,9 @@
                 </button>
               </div>
               <div class="in-cart-wrap">
-                <button class="in-cart-wrap__in-cart" (click)="addCarties(item)"><i class="fas fa-shopping-cart"> </i>
-                  <p>В корзину</p>
+                <button class="in-cart-wrap__in-cart" (click)="addCarties(item)" *ngIf="item.status; else elseButton">
+                  <i class="fas fa-shopping-cart"> </i>
+                  <p>Купить</p>
                 </button>
               </div>
             </div>
@@ -79,3 +81,9 @@
     </ng-template>
   </div>
 </div>
+<ng-template #elseButton>
+  <button class="in-cart-wrap__in-cart">
+    <i class="fas fa-check-circle"> </i>
+    <p>В корзине</p>
+  </button>
+</ng-template>

@@ -2,6 +2,9 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { of } from 'rxjs/observable/of';
 
+import { Category } from '../data/category';
+import { Categories } from "../data/categories";
+
 import { Cart } from '../data/cart';
 import { Carties } from "../data/carties";
 
@@ -14,24 +17,21 @@ export class CartService {
   	return of(Carties);
   }
 
-  addCarties(item): void{
-    
-    if(item.count != '' && item.count > 0 && item.count != '0' && Number.isInteger(Number(item.count))){
-      
-      let check: boolean = false;
-      
-      Carties.forEach(function(cart_item){
-        if(item.title == cart_item.title){
-          cart_item.count += Number(item.count);
-          check = true;
-        }
-      });
-      if(!check)
-  	    Carties.push({img: item.img, title: item.title, cost: item.cost, count: Number(item.count) });
+  addCarties(item): void{   
+    if(item.status && item.count != '' && item.count > 0 && item.count != '0' && Number.isInteger(Number(item.count))){ 
+        item.status = false;
+  	    Carties.push({id:item.id, img: item.img, title: item.title, cost: item.cost, count: Number(item.count) });
     }
   }
 
   delCart(item): void{
+    Categories.forEach(function(cat_item){
+       cat_item.positions.forEach(function(pos_item){
+           if(pos_item.id == item.id){
+             pos_item.status = true;
+           }
+        })
+    })
     let index = Carties.indexOf(item, 0);
   	Carties.splice(index, 1);
   }
