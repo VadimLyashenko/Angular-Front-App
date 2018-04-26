@@ -3,10 +3,10 @@
 </button>
 <nav class="nav" id="js-nav">
   <ul class="menu">
-    <li><a routerLink="/">Главная</a></li>
-    <li><a routerLink="/menu">Меню</a></li>
-    <li><a routerLink="/cart">Корзина</a></li>
-    <li><a routerLink="/contacts">Контакты</a></li>
+    <li><a routerLink="/" (click)="setTitle( 'Главная' )">Главная</a></li>
+    <li><a routerLink="/menu" (click)="setTitle( 'Меню' )">Меню</a></li>
+    <li><a routerLink="/cart" (click)="setTitle( 'Корзина' )">Корзина</a></li>
+    <li><a routerLink="/contacts" (click)="setTitle( 'Контакты' )">Контакты</a></li>
   </ul>
 </nav>
 <header class="header">
@@ -21,10 +21,10 @@
     </div>
     <div class="main_menu">
       <ul class="main_menu__ul">
-        <li><a routerLink="/">Главная</a></li>
-        <li><a routerLink="/menu">Меню</a></li>
-        <li><a routerLink="/cart">Корзина</a></li>
-        <li><a routerLink="/contacts">Контакты</a></li>
+        <li><a routerLink="/" (click)="setTitle( 'Главная' )">Главная</a></li>
+        <li><a routerLink="/menu" (click)="setTitle( 'Меню' )">Меню</a></li>
+        <li><a routerLink="/cart" (click)="setTitle( 'Корзина' )">Корзина</a></li>
+        <li><a routerLink="/contacts" (click)="setTitle( 'Контакты' )">Контакты</a></li>
       </ul>
     </div>
     <div class="page_name">

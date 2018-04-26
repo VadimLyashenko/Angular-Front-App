@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-header-comp',
@@ -12,7 +13,7 @@ export class HeaderCompComponent implements OnInit {
   router: string;
   bg_check: boolean = true;
 
-  constructor(private _router: Router) {}
+  constructor( private _router: Router, private titleService: Title ) {}
   
   ngOnInit() {
     this.getRoute();
@@ -39,5 +40,9 @@ export class HeaderCompComponent implements OnInit {
         }
       }
     })   
+  }
+
+  public setTitle( newTitle: string) {
+    this.titleService.setTitle( newTitle );
   }
 }

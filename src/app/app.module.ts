@@ -1,4 +1,4 @@
-import { BrowserModule } from '@angular/platform-browser';
+import { BrowserModule, Title } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AgmCoreModule } from '@agm/core';
@@ -42,7 +42,8 @@ import { NotfoundComponent } from './notfound/notfound.component';
   providers: [
     CategoryService,
     CartService,
-    OrderService
+    OrderService,
+    Title
   ],
   bootstrap: [AppComponent]
 })
