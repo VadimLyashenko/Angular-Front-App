@@ -10,6 +10,7 @@ export class HeaderCompComponent implements OnInit {
 
 	title = "Название";
   router: string;
+  bg_check: boolean = true;
 
   constructor(private _router: Router) {}
   
@@ -20,27 +21,23 @@ export class HeaderCompComponent implements OnInit {
   getRoute(){
     this._router.events.subscribe(event => {
       if (event instanceof NavigationEnd) {
-
         if(event.url == '/'){
           this.router = '';
+          this.bg_check = false;
         }
-
         if(event.url == '/menu'){
           this.router = 'Меню';
+          this.bg_check = true;
         } 
-
         if(event.url == '/cart'){
           this.router = 'Корзина';
+          this.bg_check = true;
         }
-
         if(event.url == '/contacts'){
           this.router = 'Контакты';
+          this.bg_check = true;
         }
-
       }
-    })
-
-    
+    })   
   }
-
 }

@@ -1,8 +1,14 @@
 <div class="menu-content-wrap">
-  <div class="left-bar"><span class="left-bar__toggle-left-bar">Выберите Категорию</span>
+  <div class="left-bar">
     <ul class="left-bar__menu">
       <li *ngFor="let category of categories" (click)="onSelect(category)">{{ category.title }}</li>
     </ul>
+    <div class="dropdown">
+      <button class="dropdown__button" (click)="showMenu(active_drop_button)">Меню<div *ngIf="active_drop_button; else else_i"><i  class="fas fa-caret-up"></i></div></button>
+      <ul class="dropdown__menu" *ngIf="active_drop_button" [@dropMenu]>
+        <li *ngFor="let category of categories" (click)="onSelect(category)">{{ category.title }}</li>
+      </ul>
+    </div>
   </div>
   <div class="right-bar">
     <div *ngIf="sel_category; else elseBlock">
@@ -86,4 +92,7 @@
     <i class="fas fa-check-circle"> </i>
     <p>В корзине</p>
   </button>
+</ng-template>
+<ng-template #else_i>
+  <div><i class="fas fa-caret-down"></i></div>
 </ng-template>
