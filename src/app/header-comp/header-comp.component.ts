@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router, NavigationEnd } from '@angular/router';
 
 @Component({
   selector: 'app-header-comp',
@@ -8,24 +9,38 @@ import { Component, OnInit } from '@angular/core';
 export class HeaderCompComponent implements OnInit {
 
 	title = "Название";
+  router: string;
 
-	page_name = "";
-
-  constructor() { }
-
+  constructor(private _router: Router) {}
+  
   ngOnInit() {
+    this.getRoute();
   }
 	
-	onSelectMenu(): void {
-  	this.page_name = "Меню";
-	}
+  getRoute(){
+    this._router.events.subscribe(event => {
+      if (event instanceof NavigationEnd) {
 
-	onSelectCart(): void {
-  	this.page_name = "Корзина";
-	}
+        if(event.url == '/'){
+          this.router = '';
+        }
 
-  // onSelectContacts(): void {
-    // this.page_name = "Контакты";
-  // }
+        if(event.url == '/menu'){
+          this.router = 'Меню';
+        } 
+
+        if(event.url == '/cart'){
+          this.router = 'Корзина';
+        }
+
+        if(event.url == '/contacts'){
+          this.router = 'Контакты';
+        }
+
+      }
+    })
+
+    
+  }
 
 }

@@ -15,6 +15,7 @@ import { CategoryService } from './service/category.service';
 import { CartService } from './service/cart.service';
 import { OrderService } from './service/order.service';
 import { ContactsComponent } from './contacts/contacts.component';
+import { MainComponent } from './main/main.component';
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import { ContactsComponent } from './contacts/contacts.component';
     MenuComponent,
     CartComponent,
     MathHeightDirective,
-    ContactsComponent
+    ContactsComponent,
+    MainComponent
   ],
   imports: [
     BrowserModule,

@@ -2,9 +2,9 @@
       </button>
       <nav class="nav" id="js-nav">
         <ul class="menu">
-          <li>Главная</li>
-          <li><a routerLink="/menu" (click)="onSelectMenu()">Меню</a></li>
-          <li><a routerLink="/cart" (click)="onSelectCart()">Корзина</a></li>
+          <li><a routerLink="/">Главная</a></li>
+          <li><a routerLink="/menu">Меню</a></li>
+          <li><a routerLink="/cart">Корзина</a></li>
           <li><a routerLink="/contacts">Контакты</a></li>
         </ul>
       </nav>
@@ -20,14 +20,14 @@
           </div>
           <div class="main_menu">
             <ul class="main_menu__ul">
-              <li><a href="index.html">Главная</a></li>
-              <li><a routerLink="/menu" (click)="onSelectMenu()">Меню</a></li>
-              <li><a routerLink="/cart" (click)="onSelectCart()">Корзина</a></li>
+              <li><a routerLink="/">Главная</a></li>
+              <li><a routerLink="/menu">Меню</a></li>
+              <li><a routerLink="/cart">Корзина</a></li>
               <li><a routerLink="/contacts">Контакты</a></li>
             </ul>
           </div>
           <div class="page_name">
-            <h1 class="page_name__page_name_h">{{ page_name }}
+            <h1 class="page_name__page_name_h">{{ router }}
             </h1>
           </div>
         </div>
