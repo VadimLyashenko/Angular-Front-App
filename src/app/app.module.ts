@@ -17,6 +17,7 @@ import { OrderService } from './service/order.service';
 import { ContactsComponent } from './contacts/contacts.component';
 import { MainComponent } from './main/main.component';
 import { NotfoundComponent } from './notfound/notfound.component';
+import { AdminComponent } from './admin/admin.component';
 
 
 @NgModule({
@@ -29,7 +30,8 @@ import { NotfoundComponent } from './notfound/notfound.component';
     MathHeightDirective,
     ContactsComponent,
     MainComponent,
-    NotfoundComponent
+    NotfoundComponent,
+    AdminComponent
   ],
   imports: [
     BrowserModule,

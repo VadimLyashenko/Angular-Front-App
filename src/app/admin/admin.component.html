@@ -1,0 +1,76 @@
+<div class="admin">
+  <div class="admin__wrap">
+    <div class="left-bar">
+      <ul class="left-bar__menu">
+				<li *ngFor="let position of positions" (click)=setPos(position.id)>{{ position.name }}</li>
+      </ul>
+    </div>
+    <div class="admin__right" [ngSwitch]="pos_id">
+			<ng-template ngSwitchCase="1">
+      	<div class="gen_set">
+      	  <div class="gen_set__wrap">
+      	    <div class="form">
+      	      <div class="form__form-line-wrap">
+      	        <p class="form__form-text">Название:
+      	        </p><input class="form__form-input" type="text"/>
+      	      </div>
+      	      <div class="form__form-line-wrap">
+      	        <p class="form__form-text">Вконтакте:
+      	        </p><input class="form__form-input" type="text"/>
+      	      </div>
+      	      <div class="form__form-line-wrap">
+      	        <p class="form__form-text">Facebook:
+      	        </p><input class="form__form-input" type="text"/>
+      	      </div>
+      	      <div class="form__form-line-wrap">
+      	        <p class="form__form-text">Google+:
+      	        </p><input class="form__form-input" type="text"/>
+      	      </div>
+      	      <div class="form__form-line-wrap">
+      	        <p class="form__form-text">Twitter:
+      	        </p><input class="form__form-input" type="text"/>
+      	      </div>
+      	    </div>
+      	  </div>
+      	</div>
+			</ng-template>
+			<ng-template ngSwitchCase="2">
+      	<div class="titul">
+      	  <div class="titul__wrap">
+      	    <div class="line_sel">
+      	      <div class="line_sel__wrap">
+      	        <p class="line_sel__text">Количество слайдов
+      	        </p>
+      	        <select class="line_sel__select" (change)=setSliders($event.target.value) > {{ slide_num }}
+      	          <option  *ngFor="let opt of options" [value]="opt">{{ opt }}</option>
+      	        </select>
+      	      </div>
+      	    </div>
+      	    <div class="slide_desc" *ngFor="let item of sliders; let i = index">
+      	      <div class="slide_desc__wrap" *ngIf="slide_num > i">
+      	        <p class="slide_desc__slide_num">Слайд {{i+1}}:
+      	        </p>
+      	        <div class="form">
+      	          <div class="form__form-line-wrap">
+      	            <p class="form__form-text">Текст 1:
+      	            </p><input class="form__form-input" type="text" value={{item.text_1}}/>
+      	          </div>
+      	          <div class="form__form-line-wrap">
+      	            <p class="form__form-text">Текст 2:
+      	            </p><input class="form__form-input" type="text" value={{item.text_2}}/>
+      	          </div>
+      	        </div>
+      	        <div class="line_file">
+      	          <div class="line_file__wrap">
+      	            <p class="line_file__text">Фоновая картинка
+      	            </p><input class="line_file__input" type="file"/>
+      	          </div>
+      	        </div>
+      	      </div>
+      	    </div>
+      	  </div>
+      	</div>
+			</ng-template>
+    </div>
+  </div>
+</div>

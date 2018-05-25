@@ -2880,10 +2880,6 @@ a {
   font-size: 20px;
   margin-right: 9px; }
 
-.fa-check-circle {
-  font-size: 20px;
-  margin-right: 9px; }
-
 .cart-content-wrap {
   padding: 0 15px;
   top: 25px;
@@ -3320,6 +3316,43 @@ a {
   .social__social-icon {
     color: #1f2531;
     font-size: 20px; }
+
+.line_sel__wrap {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex; }
+
+.line_sel__text {
+  margin-right: 10px;
+  margin-bottom: 0; }
+
+.slide_desc__wrap {
+  margin-top: 40px; }
+
+.line_file {
+  margin-top: 20px; }
+  .line_file__wrap {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+        -ms-flex-align: center;
+            align-items: center; }
+  .line_file__text {
+    margin-bottom: 0;
+    margin-right: 10px; }
+
+.admin__wrap {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex; }
+
+.admin__right {
+  margin-top: 10px; }
 
 /*==========  Desktop First  ==========*/
 @media (max-width: 991.98px) {
